@@ -1,5 +1,7 @@
 package de.kgveinigkeitschocken.routing
 
+import de.kgveinigkeitschocken.core.di
+import de.kgveinigkeitschocken.db.service.UserService
 import io.ktor.resources.Resource
 import io.ktor.server.application.call
 import io.ktor.server.pebble.PebbleContent
@@ -10,6 +12,7 @@ import io.ktor.server.resources.delete
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Route
 import kotlinx.serialization.Serializable
+import org.kodein.di.instance
 
 @Serializable
 @Resource("/users")
@@ -35,10 +38,17 @@ private class UserRouting {
 }
 
 fun Route.userRoute() {
+    val userService: UserService by di.instance()
+
     get<UserRouting> {
-        // TODO: Show UI for user overview
+        val users = userService.getAllUsers()
         call.respond(
-            PebbleContent("user/index.peb", mapOf())
+            PebbleContent(
+                template = "user/index.peb",
+                model = mapOf(
+                    "users" to users
+                )
+            )
         )
     }
 

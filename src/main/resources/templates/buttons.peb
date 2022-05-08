@@ -1,0 +1,13 @@
+{% macro linkbutton(text, href, icon, type, custom_classes="") %}
+<a href="{{ href }}" class="btn btn-{{ type }} d-flex {{ custom_classes}}">
+    <span class="material-symbols-rounded">{{ icon }}</span>
+    <span class="ms-1">{{ text }}</span>
+</a>
+{% endmacro %}
+
+{% macro submitbutton(text, icon, type, custom_classes="") %}
+    <button type="submit" class="btn btn-{{ type }} d-flex {{ custom_classes }}">
+        <span class="material-symbols-rounded">{{ icon }}</span>
+        <span class="ms-1">{{ text }}</span>
+    </button>
+{% endmacro %}

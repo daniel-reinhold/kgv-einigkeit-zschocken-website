@@ -31,4 +31,8 @@ class UserEntity(id: EntityID<Int>) : IntEntity(id) {
     var houseNumber by UserTable.houseNumber
     var password by UserTable.password
     var isAdmin by UserTable.isAdmin
+
+    fun fullName(): String {
+        return "$firstName $lastName"
+    }
 }

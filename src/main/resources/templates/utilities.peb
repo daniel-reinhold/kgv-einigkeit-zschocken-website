@@ -1,0 +1,3 @@
+{% macro icon(icon, type="primary", custom_classes="") %}
+<span class="material-symbols-rounded text-{{ type }} {{ custom_classes }}">{{ icon }}</span>
+{% endmacro %}
