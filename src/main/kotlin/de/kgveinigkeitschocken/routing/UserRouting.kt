@@ -38,7 +38,7 @@ fun Route.userRoute() {
     get<UserRouting> {
         // TODO: Show UI for user overview
         call.respond(
-            PebbleContent("user/index.html", mapOf())
+            PebbleContent("user/index.peb", mapOf())
         )
     }
 
@@ -46,7 +46,7 @@ fun Route.userRoute() {
         // TODO: Show UI for creating new User
         call.respond(
             PebbleContent(
-                template = "user/show.html",
+                template = "user/show.peb",
                 model = mapOf(
                     "userId" to resource.id
                 )
@@ -57,7 +57,7 @@ fun Route.userRoute() {
     get<UserRouting.Create> {
         // TODO: Show UI for creating new User
         call.respond(
-            PebbleContent("user/new.html", mapOf())
+            PebbleContent("user/new.peb", mapOf())
         )
     }
 
@@ -69,7 +69,7 @@ fun Route.userRoute() {
         // TODO: Show UI for editing user
         call.respond(
             PebbleContent(
-                template = "user/edit.html",
+                template = "user/edit.peb",
                 model = mapOf(
                     "userId" to resource.parent.id
                 )
