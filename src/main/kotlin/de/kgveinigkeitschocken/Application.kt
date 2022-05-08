@@ -1,5 +1,6 @@
 package de.kgveinigkeitschocken
 
+import de.kgveinigkeitschocken.db.initDB
 import io.ktor.server.application.*
 import de.kgveinigkeitschocken.plugins.*
 
@@ -11,6 +12,7 @@ fun Application.module() {
     configureRouting()
     configureTemplating()
     configureMonitoring()
-    configureHTTP()
     configureSecurity()
+
+    initDB()
 }
