@@ -1,4 +1,4 @@
-package de.kgveinigkeitschocken.plugins
+package de.kgveinigkeitschocken.routing
 
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
@@ -14,5 +14,7 @@ fun Application.configureRouting() {
                 PebbleContent("index.html", mapOf())
             )
         }
+
+        userRoute()
     }
 }

@@ -6,6 +6,7 @@ val exposedVersion: String by project
 plugins {
     application
     kotlin("jvm") version "1.6.20"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.6.21"
 }
 
 group = "de.kgveinigkeitschocken"
@@ -38,7 +39,8 @@ dependencies {
     implementation("io.ktor:ktor-server-sessions-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
-    testImplementation("io.ktor:ktor-server-tests-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-server-resources-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:$ktorVersion")
 
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
